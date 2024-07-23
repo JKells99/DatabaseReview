@@ -59,6 +59,8 @@ public class Main {
         if(user != null){
             System.out.println("Welcome: " + user.getUserName());
         }
+    
+    }
 
     
 
