@@ -61,8 +61,9 @@ public class Main {
         }
 
     
-        
-    }
+
+    
+    
 
     private static void registerUser(Scanner sc) throws SQLException {
 
