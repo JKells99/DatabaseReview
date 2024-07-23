@@ -48,6 +48,18 @@ public class UserService {
         return user;
     }
 
+    public void deleteUser(String userName) throws SQLException{
+        if(userName == null){
+            System.out.println("Please Enter A Email...");
+        }
+
+        userDAO.deleteUser(userName);
+
+        System.out.println("User " + userName + " Deleted");
+
+        
+    }
+
 
     
 }

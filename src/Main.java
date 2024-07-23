@@ -58,7 +58,13 @@ public class Main {
 
         if(user != null){
             System.out.println("Welcome: " + user.getUserName());
+
+            if(user.getUserName().equals("Jamie")){
+                jamieDashboard(sc,user);
+            }
         }
+
+        
     
     }
 
@@ -67,7 +73,22 @@ public class Main {
     
     
 
-    private static void registerUser(Scanner sc) throws SQLException {
+  private static void jamieDashboard(Scanner sc, User user) throws SQLException {
+        System.out.println("Welcome To Jamie Dashboard!");
+
+        System.out.println("Press 1 To Delete Jordan");
+
+        int choice = sc.nextInt();
+
+        if(choice == 1){
+            userService.deleteUser("Jordan");
+        } else{
+            return;
+        }
+
+    }
+
+  private static void registerUser(Scanner sc) throws SQLException {
 
         System.out.println("Adding A New User.... ");
         System.out.println("Enter The Username");

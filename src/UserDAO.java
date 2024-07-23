@@ -17,9 +17,6 @@ public class UserDAO {
             preparedStatement.setString(2, user.getPassword());
 
             preparedStatement.executeUpdate();
-
-            
-
         }
     }
 
@@ -36,22 +33,22 @@ public class UserDAO {
                             rs.getInt("userId"),
                             rs.getString("username"),
                             rs.getString("password")   
-
                     );
                 }
             }
-           
-
-            
-
-            
-
         }
-
-        return null;
-        
+        return null;    
     }
 
+    public void deleteUser(String userName) throws SQLException {
+        String sql = "DELETE FROM users WHERE userName = ?";
 
+        try(Connection conn = DatabseConnection.getConnection();
+        PreparedStatement pStatement = conn.prepareStatement(sql)){
+            pStatement.setString(1, userName);
+            pStatement.executeUpdate();
+        }
+    }
+    
     
 }
