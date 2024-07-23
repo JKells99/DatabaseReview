@@ -1,5 +1,7 @@
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDAO {
@@ -19,6 +21,35 @@ public class UserDAO {
             
 
         }
+    }
+
+    public User getUserByUsername(String username) throws SQLException {
+        String sql = "SELECT * FROM users WHERE username = ?";
+        try(Connection conn = DatabseConnection.getConnection()){
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+
+            preparedStatement.setString(1, username);
+
+            try (ResultSet rs = preparedStatement.executeQuery()){
+                if (rs.next()) {
+                    return new User(
+                            rs.getInt("userId"),
+                            rs.getString("username"),
+                            rs.getString("password")   
+
+                    );
+                }
+            }
+           
+
+            
+
+            
+
+        }
+
+        return null;
+        
     }
 
 
