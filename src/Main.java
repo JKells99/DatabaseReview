@@ -2,6 +2,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Main {
+    
     private static AnimalService animalService = new AnimalService();
     private static UserService userService = new UserService();
 

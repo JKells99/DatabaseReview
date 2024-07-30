@@ -52,14 +52,13 @@ public class UserService {
         if(userName == null){
             System.out.println("Please Enter A Email...");
         }
-
         userDAO.deleteUser(userName);
 
-        System.out.println("User " + userName + " Deleted");
-
-        
+        System.out.println("User " + userName + " Deleted"); 
     }
 
 
     
 }
+
+
